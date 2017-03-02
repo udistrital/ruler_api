@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/apdaza/rulerApiV3/models"
+	"github.com/udistrital/ruler_api/models"
 	"strconv"
 	"strings"
 
