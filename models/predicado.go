@@ -30,6 +30,9 @@ func init() {
 func AddPredicado(m *Predicado) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
+	if err != nil {
+		fmt.Println(err)
+	}
 	return
 }
 
@@ -49,7 +52,7 @@ func GetPredicadoById(id int) (v *Predicado, err error) {
 func GetAllPredicado(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Predicado)).RelatedSel()
+	qs := o.QueryTable(new(Predicado)).RelatedSel(1)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
