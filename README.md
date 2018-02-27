@@ -8,5 +8,3 @@ Para ejecutar el ruler se deben crear las variables de entorno:
 - RULER_DB_PASS
 - RULER_DB_NAME
 - RULER_DB_SCHEMAS
-
--
