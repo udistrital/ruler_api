@@ -10,3 +10,4 @@ Para ejecutar el ruler se deben crear las variables de entorno:
 - RULER_DB_SCHEMAS
 
 With CI en AWS
+
