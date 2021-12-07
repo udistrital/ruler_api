@@ -45,9 +45,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Dominio'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - dominio
@@ -79,6 +81,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Dominio'
         "403":
@@ -102,6 +105,7 @@ paths:
           $ref: '#/definitions/models.Dominio'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Dominio'
         "403":
@@ -156,9 +160,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Predicado'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - predicado
@@ -190,6 +196,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Predicado'
         "403":
@@ -213,6 +220,7 @@ paths:
           $ref: '#/definitions/models.Predicado'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Predicado'
         "403":
@@ -267,9 +275,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoPredicado'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - tipo_predicado
@@ -301,6 +311,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoPredicado'
         "403":
@@ -324,6 +335,7 @@ paths:
           $ref: '#/definitions/models.TipoPredicado'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoPredicado'
         "403":
