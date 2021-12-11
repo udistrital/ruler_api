@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<role name="test"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********"
+      sql-disabled="true">
+</role>
+
+<role name="desarrollooas"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="test" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8">
+	<role name="test"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="ruler" rect-visible="true" fill-color="#f8b721">
+	<role name="test"/>
+</schema>
+
+<sequence name="dominio_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ruler"/>
+	<role name="test"/>
+</sequence>
+
+<table name="dominio">
+	<schema name="ruler"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla de dominios del ruler]]></comment>
+	<position x="120" y="147"/>
+	<column name="id" not-null="true" sequence="ruler.dominio_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador del dominio]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="35"/>
+		<comment><![CDATA[Nombre del dominio]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="150"/>
+		<comment><![CDATA[Descripcion del dominio]]></comment>
+	</column>
+</table>
+
+<sequence name="predicado_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ruler"/>
+	<role name="test"/>
+</sequence>
+
+<table name="predicado">
+	<schema name="ruler"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla de predicados del ruler]]></comment>
+	<position x="500" y="200"/>
+	<column name="id" not-null="true" sequence="ruler.predicado_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador del predicado]]></comment>
+	</column>
+	<column name="dominio" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador del dominio]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="0"/>
+		<comment><![CDATA[Texto del predicado]]></comment>
+	</column>
+	<column name="descripcion" not-null="true">
+		<type name="character varying" length="150"/>
+		<comment><![CDATA[Descripcion del predicado]]></comment>
+	</column>
+	<column name="tipo_predicado" not-null="true">
+		<type name="smallint" length="0"/>
+		<comment><![CDATA[Define si es un hecho o una regla]]></comment>
+	</column>
+</table>
+
+<sequence name="tipo_predicado_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="ruler"/>
+	<role name="test"/>
+</sequence>
+
+<table name="tipo_predicado">
+	<schema name="ruler"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla de tipos de predicados del ruler]]></comment>
+	<position x="140" y="300"/>
+	<column name="id" not-null="true" sequence="ruler.tipo_predicado_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador del tipo de predicado]]></comment>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Nombre del tipo de predicado]]></comment>
+	</column>
+</table>
+
+</dbmodel>
