@@ -78,6 +78,11 @@ Pruebas unitarias
 # Not Data
 ```
 
+### Modelo
+
+[SVG](database/ruler.svg) -
+[PGmodeler](database/ruler.dbm)
+
 ## Estado CI
 
 | Develop | Release 0.0.1 | Master |
