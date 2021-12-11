@@ -10,6 +10,10 @@ main
 .vscode/
 .scannerwork/
 
+# Variables de entorno
+*.env
+!.template.env
+
 # Swagger
 swagger/**
 !swagger/swagger.yml
