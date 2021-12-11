@@ -1,20 +1,21 @@
 package main
 
 import (
-	_ "github.com/udistrital/ruler_api/routers"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/lib/pq"
-	"github.com/udistrital/utils_oas/apiStatusLib"
+
+	_ "github.com/udistrital/ruler_api/routers"
+	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 )
 
 func init() {
-	orm.RegisterDataBase("default", "postgres", "postgres://"+beego.AppConfig.String("db_user")+":"+
-																							beego.AppConfig.String("db_pass")+"@"+
-																							beego.AppConfig.String("db_url")+"/"+
-																							beego.AppConfig.String("db_name")+"?sslmode=disable&search_path="+
-																							beego.AppConfig.String("db_schemas")+"")
+	orm.RegisterDataBase("default", "postgres",
+		"postgres://"+beego.AppConfig.String("db_user")+
+			":"+beego.AppConfig.String("db_pass")+
+			"@"+beego.AppConfig.String("db_url")+
+			"/"+beego.AppConfig.String("db_name")+
+			"?sslmode=disable&search_path="+beego.AppConfig.String("db_schemas"))
 }
 
 func main() {
