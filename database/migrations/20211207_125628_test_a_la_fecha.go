@@ -5,7 +5,9 @@ import (
 	"io/ioutil"
 	"strings"
 
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/migration"
+	"github.com/astaxie/beego/orm"
 )
 
 // DO NOT MODIFY
@@ -21,8 +23,23 @@ func init() {
 	migration.Register("TestALaFecha_20211207_125628", m)
 }
 
+type dbSchema struct {
+	SchemaName string
+}
+
 // Run the migrations
 func (m *TestALaFecha_20211207_125628) Up() {
+	o := orm.NewOrm()
+	var names []dbSchema
+	rows, err := o.Raw("SELECT schema_name FROM information_schema.schemata WHERE schema_name = 'ruler'").QueryRows(&names)
+	if err != nil {
+		panic(err)
+	}
+	logs.Info(names)
+	if rows != 0 {
+		return
+	}
+
 	file, err := ioutil.ReadFile("../scripts/20211207_125628_test_a_la_fecha.up.sql")
 
 	if err != nil {
@@ -33,7 +50,6 @@ func (m *TestALaFecha_20211207_125628) Up() {
 	requests := strings.Split(string(file), ";\n")
 
 	for _, request := range requests {
-		fmt.Println(request)
 		m.SQL(request)
 		// do whatever you need with result and error
 	}
@@ -52,7 +68,6 @@ func (m *TestALaFecha_20211207_125628) Down() {
 	requests := strings.Split(string(file), ";\n")
 
 	for _, request := range requests {
-		fmt.Println(request)
 		m.SQL(request)
 		// do whatever you need with result and error
 	}
