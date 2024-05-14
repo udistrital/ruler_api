@@ -1,8 +1,6 @@
 package main
 
-import (
-	"net/url"
-	
+import (	
 	_ "github.com/udistrital/ruler_api/routers"
 
 	"github.com/astaxie/beego"
@@ -13,7 +11,7 @@ import (
 
 func init() {
 	orm.RegisterDataBase("default", "postgres", "postgres://"+beego.AppConfig.String("db_user")+":"+
-																							url.QueryEscape(beego.AppConfig.String("PGpass"))+"@"+
+																							beego.AppConfig.String("db_pass")+"@"+
 																							beego.AppConfig.String("db_url")+"/"+
 																							beego.AppConfig.String("db_name")+"?sslmode=disable&search_path="+
 																							beego.AppConfig.String("db_schemas")+"")
