@@ -7,6 +7,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	_ "github.com/lib/pq"
 	"github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/utils_oas/xray"
 )
 
 func init() {
@@ -22,6 +23,7 @@ func main() {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
 	}
+	xray.InitXRay()
 	apistatus.Init()
 	beego.Run()
 }
