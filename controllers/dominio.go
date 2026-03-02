@@ -3,11 +3,12 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/ruler_api/models"
+	"fmt"
 	"strconv"
 	"strings"
-  "fmt"
+
 	"github.com/astaxie/beego"
+	"github.com/udistrital/ruler_api/models"
 )
 
 // DominioController oprations for Dominio
