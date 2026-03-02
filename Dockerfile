@@ -5,4 +5,4 @@ WORKDIR /
 COPY main main
 COPY conf/app.conf conf/app.conf
 
-ENTRYPOINT ["/main"]
+ENTRYPOINT ["/main"] 
